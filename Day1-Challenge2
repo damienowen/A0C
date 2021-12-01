@@ -1,0 +1,28 @@
+public class AocDay1Test2 {
+
+    public static void main(){
+        
+        StaticResource sr = [SELECT Id, Body FROM StaticResource WHERE Name = 'AocDay1Input' LIMIT 1];
+        String body = sr.Body.toString();
+        
+        List<String> StringNums = body.split('\\n');
+        List<Integer> nums = new List<Integer>();
+        Integer counter = 0;
+        Integer a = 0;
+        Integer b = 0;
+             
+        for (String s : StringNums){
+            nums.add(Integer.valueOf(s));
+        }
+    
+        for (integer i=0; i<nums.size()-3; i++) {
+            
+            a = (nums[i]+nums[i+1]+nums[i+2]);
+            b = (nums[i+1]+nums[i+2]+nums[i+3]);
+            if (a<b) {
+            	counter++;
+            }
+        }
+        System.debug('Answer : '+counter);
+    }
+}
